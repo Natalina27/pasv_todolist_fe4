@@ -1,0 +1,13 @@
+.todolist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    border: gainsboro 1px solid;
+}
+
+@media(min-width: 320px)and(max-width: 7688px){
+    .todolist{
+        width: 300px;
+    }
+}
