@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import s from  './App.module.css';
 import {TodoForm} from "../TodoForm/TodoForm";
 
-function App() {
+export const App = () => {
     const initialState = [
         {
             todo: 'Watch the last lesson\'s record',
@@ -23,10 +23,6 @@ function App() {
     ];
     const [list, setList] = useState(initialState);
 
-    const todoListJSX = list.map((el, i)=>(
-        <TodoList key={el.id} idx={i} todo={el} />
-    ));
-
     const handleAddNewTask = value => {
         const newList =[...list, {
             todo: value,
@@ -35,6 +31,34 @@ function App() {
         }];
         setList(newList);
     }
+
+    const handleDoneTask = id => {
+        const idx = list.findIndex( el => el.id === id);
+        const newList =[...list];
+        newList[idx].isDone = !newList[idx].isDone;
+        setList(newList);
+    }
+
+    const handleDeleteTask = id => {
+        const idx = list.findIndex( el => el.id === id);
+        const newList =[
+            ...list.slice(0,idx),
+            ...list.slice(idx+1)
+        ];
+        setList(newList);
+    }
+
+
+    const todoListJSX = list.map((el, i)=>(
+        <TodoList key={el.id}
+                  id={el.id}
+                  idx={i}
+                  isDone={el.isDone}
+                  todo={el}
+                  doneTask={handleDoneTask}
+                  deleteTask={handleDeleteTask}
+        />
+    ));
 
   return (
     <div className={s.app}>
@@ -46,5 +70,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -13,17 +13,16 @@ export const TodoForm = ({addNewTask}) => {
         setValue('');
     }
     return (
-        <>
             <Form onSubmitCapture={handleSubmit}>
                 <Input placeholder='Add new task...'
                        className={s.input}
                        value={value}
                        onChange={e => setValue(e.target.value)}
+
                 />
-                <Button className={s.addButton}>
+                <Button className={s.addButton} onClick={handleSubmit}>
                     <PlusCircleOutlined />
                 </Button>
             </Form>
-        </>
     );
 };

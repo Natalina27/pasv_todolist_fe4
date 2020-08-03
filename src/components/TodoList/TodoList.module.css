@@ -14,6 +14,10 @@
     height: 36px;
 }
 
+.done{
+    text-decoration: line-through;
+}
+
 @media(min-width: 320px)and(max-width: 7688px){
     .todolist{
         width: 300px;
