@@ -1,9 +1,17 @@
+
+.form{
+    display: flex;
+    flex-direction: row;
+}
 .todolist{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 700px;
+    width: 400px;
+    height: 30px;
     border: gainsboro 1px solid;
+    padding: 3px;
+}
+.editButton{
+    height: 35px;
 }
 
 @media(min-width: 320px)and(max-width: 7688px){

@@ -3,6 +3,7 @@ import {TodoList} from '../TodoList/TodoList';
 import { v4 as uuid } from 'uuidv4';
 
 import s from  './App.module.css';
+import {TodoForm} from "../TodoForm/TodoForm";
 
 function App() {
     const initialState = [
@@ -27,9 +28,12 @@ function App() {
     ));
 
   return (
-    <div className={s.App}>
-      <h1>My TO-DO List</h1>
-        {todoListJSX}
+    <div className={s.app}>
+        <div className={s.todo}>
+            <h1 className={s.title}>MY TO-DO LIST</h1>
+            {todoListJSX}
+            <TodoForm />
+        </div>
     </div>
   );
 }
