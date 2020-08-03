@@ -6,26 +6,31 @@ import s from  './App.module.css';
 import {TodoForm} from "../TodoForm/TodoForm";
 
 export const App = () => {
+
     const initialState = [
         {
-            todo: 'Watch the last lesson\'s record',
+            title: 'Watch the last lesson\'s record',
             isDone: false,
+            isEdit: false,
             id: uuid()
         }, {
-            todo: 'Make homework',
+            title: 'Make homework',
             isDone: false,
+            isEdit: false,
             id: uuid()
         }, {
-            todo: 'Read the documentation',
+            title: 'Read the documentation',
             isDone: false,
+            isEdit: false,
             id: uuid()
         }
     ];
     const [list, setList] = useState(initialState);
 
+
     const handleAddNewTask = value => {
         const newList =[...list, {
-            todo: value,
+            title: value,
             isDone: false,
             id: uuid()
         }];
@@ -48,15 +53,31 @@ export const App = () => {
         setList(newList);
     }
 
+    const taskDown = (idx) => {
+        const newTask = [...list];
+        newTask.splice(idx + 1, 0, newTask.splice(idx, 1)[0]);
+        setList(newTask);
+    }
+
+    const taskUp = (idx) => {
+        if(idx !== 0) {
+            const newTask = [...list];
+            newTask.splice(idx - 1, 0, newTask.splice(idx, 1)[0]);
+            setList(newTask);
+        }
+    }
 
     const todoListJSX = list.map((el, i)=>(
         <TodoList key={el.id}
                   id={el.id}
                   idx={i}
                   isDone={el.isDone}
-                  todo={el}
+                  isEdit={el.isEdit}
+                  title={el.title}
                   doneTask={handleDoneTask}
                   deleteTask={handleDeleteTask}
+                  taskDown={taskDown}
+                  taskUp={taskUp}
         />
     ));
 
