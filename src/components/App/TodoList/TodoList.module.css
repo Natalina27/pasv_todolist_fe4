@@ -1,11 +1,12 @@
-
 .form{
     display: flex;
     flex-direction: row;
+    width: 100%;
+
 }
 .todolist{
     display: flex;
-    width: 345px;
+    width: 100%;
     height: 30px;
     border: gainsboro 1px solid;
     padding: 3px;
@@ -18,8 +19,10 @@
     text-decoration: line-through;
 }
 
-@media(min-width: 320px)and(max-width: 7688px){
-    .todolist{
-        width: 300px;
+@media(min-width: 320px)and(max-width: 768px){
+    .form{
+        display: flex;
+        flex-direction: row;
+        width: 130px;
     }
 }

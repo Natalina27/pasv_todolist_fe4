@@ -20,3 +20,17 @@
   font-weight: 300;
 
 }
+
+@media(min-width: 320px) and (max-width: 768px){
+  .todo{
+    width: 290px;
+    border: gainsboro 1px solid;
+    padding: 2px;
+  }
+  .title{
+    font-family: Helvetica Neue, monospace;
+    font-weight: 200;
+    font-size: 30px;
+
+  }
+}

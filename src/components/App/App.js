@@ -75,6 +75,9 @@ export const App = () => {
         setList(newList);
     }
 
+    const done = list.filter((el) => el.isDone).length;
+    const todo = list.length - done;
+
     return (
     <div className={s.app}>
         <div className={s.todo}>
@@ -88,7 +91,7 @@ export const App = () => {
                 taskUp={handleTaskUp}
                 taskEdit={handleEditItem}
             />
-            <Footer todo={list.length} done={list.length}/>
+            <Footer todo={todo} done={done}/>
         </div>
     </div>
   );

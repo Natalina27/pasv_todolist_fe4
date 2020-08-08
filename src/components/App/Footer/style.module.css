@@ -5,8 +5,8 @@
 
 .text{
     display: flex;
-    justify-content: space-between;
-    margin: 10px;
+    justify-content: space-around;
+    margin:  10px 20px;
     font-size: 15px;
     font-weight: bold;
     color: #545454;
@@ -15,11 +15,8 @@
 @media(min-width: 320px) and (max-width: 768px){
     .wrap{
         justify-content: space-between;
-        width: 85%;
-        padding: 2px 5px;
-        border-radius: 10px;
         background-color: #d3d3d3;
-        margin: 5px;
+        margin: 2px;
     }
 
     .text{
