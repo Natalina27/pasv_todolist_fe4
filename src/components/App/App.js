@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {TodoList} from '../TodoList/TodoList';
+import {TodoList} from './TodoList/TodoList';
 import { v4 as uuid } from 'uuid';
 
 import s from  './App.module.css';
-import {TodoForm} from "../TodoForm/TodoForm";
+import {TodoForm} from "./TodoForm";
+import {Footer} from "./Footer";
 
 export const App = () => {
 
@@ -26,7 +27,6 @@ export const App = () => {
         }
     ];
     const [list, setList] = useState(initialState);
-
 
     const handleAddNewTask = value => {
         const newList =[...list, {
@@ -53,13 +53,13 @@ export const App = () => {
         setList(newList);
     }
 
-    const taskDown = (idx) => {
+    const handleTaskDown = (idx) => {
         const newTask = [...list];
         newTask.splice(idx + 1, 0, newTask.splice(idx, 1)[0]);
         setList(newTask);
     }
 
-    const taskUp = (idx) => {
+    const handleTaskUp = (idx) => {
         if(idx !== 0) {
             const newTask = [...list];
             newTask.splice(idx - 1, 0, newTask.splice(idx, 1)[0]);
@@ -67,26 +67,28 @@ export const App = () => {
         }
     }
 
-    const todoListJSX = list.map((el, i)=>(
-        <TodoList key={el.id}
-                  id={el.id}
-                  idx={i}
-                  isDone={el.isDone}
-                  isEdit={el.isEdit}
-                  title={el.title}
-                  doneTask={handleDoneTask}
-                  deleteTask={handleDeleteTask}
-                  taskDown={taskDown}
-                  taskUp={taskUp}
-        />
-    ));
+    const handleEditItem = (id, todo) => {
+        const newList = list.map(el=>{
+            el= el.id === id ? {...el, todo} : el;
+            return el;
+        });
+        setList(newList);
+    }
 
-  return (
+    return (
     <div className={s.app}>
         <div className={s.todo}>
             <h1 className={s.title}>MY TO-DO LIST</h1>
-            {todoListJSX}
             <TodoForm addNewTask={handleAddNewTask}/>
+            <TodoList
+                list={list}
+                deleteTask={handleDeleteTask}
+                doneTask={handleDoneTask}
+                taskDown={handleTaskDown}
+                taskUp={handleTaskUp}
+                taskEdit={handleEditItem}
+            />
+            <Footer todo={list.length} done={list.length}/>
         </div>
     </div>
   );
