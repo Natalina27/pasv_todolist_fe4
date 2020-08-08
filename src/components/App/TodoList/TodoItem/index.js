@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import clx from "classnames";
-import s from "../TodoList.module.css";
+import s from './styles.module.css';
 import {Button, Form, Input} from "antd";
 import {EditOutlined, CheckCircleOutlined, DeleteOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
@@ -30,7 +30,7 @@ export const TodoItem = (
     }
 
     const style = clx({
-        [s.form]: true,
+        [s.form]:true,
         [s.done]: isDone
     });
 

@@ -11,19 +11,3 @@
     font-weight: bold;
     color: #545454;
 }
-
-@media(min-width: 320px) and (max-width: 768px){
-    .wrap{
-        justify-content: space-between;
-        background-color: #d3d3d3;
-        margin: 2px;
-    }
-
-    .text{
-        margin: 5px;
-        font-size: 15px;
-        font-weight: bold;
-        color: #545454;
-
-    }
-}

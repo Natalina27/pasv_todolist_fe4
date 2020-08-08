@@ -1,0 +1,19 @@
+.form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.done{
+    text-decoration: line-through;
+}
+.todolist{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    border: gainsboro 1px solid;
+    padding: 3px;
+}
+.editButton{
+    height: 36px;
+}
