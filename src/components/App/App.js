@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {TodoList} from './TodoList/TodoList';
 import { v4 as uuid } from 'uuid';
+import {TodoForm} from './TodoForm';
+import {Footer} from './Footer';
 
 import s from  './App.module.css';
-import {TodoForm} from "./TodoForm";
-import {Footer} from "./Footer";
 
 export const App = () => {
 
@@ -53,13 +53,13 @@ export const App = () => {
         setList(newList);
     }
 
-    const handleTaskDown = (idx) => {
+    const handleTaskDown = idx => {
         const newTask = [...list];
         newTask.splice(idx + 1, 0, newTask.splice(idx, 1)[0]);
         setList(newTask);
     }
 
-    const handleTaskUp = (idx) => {
+    const handleTaskUp = idx => {
         if(idx !== 0) {
             const newTask = [...list];
             newTask.splice(idx - 1, 0, newTask.splice(idx, 1)[0]);
@@ -69,8 +69,7 @@ export const App = () => {
 
     const handleEditItem = (id, todo) => {
         const newList = list.map(el=>{
-            el= el.id === id ? {...el, todo} : el;
-            return el;
+           return  el.id === id ? {...el, todo} : el;
         });
         setList(newList);
     }

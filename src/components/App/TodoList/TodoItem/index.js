@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import clx from "classnames";
-import s from './styles.module.css';
-import {Button, Form, Input} from "antd";
+import clx from 'classnames';
+import {Button, Form, Input} from 'antd';
 import {EditOutlined, CheckCircleOutlined, DeleteOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+
+import s from './styles.module.css';
 
 export const TodoItem = (
     {
@@ -65,5 +66,4 @@ export const TodoItem = (
             </Button>
         </Form>
     )
-
 };

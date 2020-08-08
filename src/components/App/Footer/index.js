@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import s from './style.module.css';
 
 export const Footer = ({todo, done}) => {

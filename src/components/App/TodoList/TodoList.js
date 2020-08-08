@@ -1,5 +1,5 @@
 import React from 'react';
-import {TodoItem} from "./TodoItem";
+import {TodoItem} from './TodoItem';
 
 import s from './TodoList.module.css';
 
@@ -26,6 +26,5 @@ export const TodoList = (
             ))
             }
         </div>
-
     )
 };
