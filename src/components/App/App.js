@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import {TodoList} from './TodoList/TodoList';
 import { v4 as uuid } from 'uuid';
 import {TodoForm} from './TodoForm';
@@ -7,6 +8,18 @@ import {Footer} from './Footer';
 import s from  './App.module.css';
 
 export const App = () => {
+
+    axios.get('/user?ID=12345')
+        .then(result => {
+
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
 
     const initialState = [
         {
